@@ -1,0 +1,51 @@
+$body-background: #3e3e3e;
+
+//Font-family
+
+$font-regular: Averta,Helvetica,Verdana,Geneva,sans-serif;
+$font-icon: "moon-icons",Helvetica,arial;
+
+//color's
+
+$general-text-color: #535353;
+$heading-color: #333;
+$black-color: #000;
+$white-color: #fff;
+$brand-color: #004a7c;
+$link-color: #004a7c;
+$page-bg-color: #f6f6f6;
+//fonts size
+$base-font-size: 14px;
+$base-line-heigth: 20px;
+$input-font-size: 16px;
+
+//Header
+$header-bg-color: #3e3e3e;
+
+//Button
+
+$button-text-size: 20px;
+$button-grey: #ccc;
+$button-blue: #1879b9;
+$button-blue-hover:#0d598b;
+$button-white: #fff;
+
+//Title
+
+$title-font-size: 36px;
+$title-line-height: 42px;
+
+
+//link
+
+$link-font-size: 13px;
+$link-font-family: $font-regular;
+
+//fonts
+
+$primary-font: 14px/20px $font-regular;
+$title-font: normal #{$title-font-size}/#{$title-line-height} $font-regular;
+$list-title-font: normal 18px/26px $font-regular;
+$mobile-title-font: normal 20px/26px $font-regular;
+$search-heading-font: normal 20px/28px $font-regular;
+
