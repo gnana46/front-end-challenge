@@ -38,7 +38,7 @@ class MovieDetails extends Component{
                             <li className="item overview"><span>Overview:</span> {details.overview} </li>
                             <li className="item"><span>Release date:</span> {details.release_date} </li>
                             <li className="item"><span>Original title:</span> {details.original_title} </li>
-                            <li className="item"><span>Popularity:</span> {details.popularity}%</li>
+                            <li className="item"><span>Popularity:</span> {parseInt(details.popularity, 10)}%</li>
                             <li className="item"><span>Language:</span> {details.original_language} </li>
                             <li className="item"><span>Vote average:</span> {details.vote_average}</li>
                             <li className="item"><span>Votes:</span> {details.vote_count}</li>

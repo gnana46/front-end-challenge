@@ -18,7 +18,7 @@ class MovieList extends Component{
                                 <h4 className="item-title">{movie.title} <span>{movie.release_date}</span></h4>
                                 <ul className="sub-info">
                                     <li><i className="icon-sphere"></i><span>original language: {movie.original_language}</span></li>
-                                    <li><i className="icon-heart"></i><span>{movie.popularity}%</span></li>
+                                    <li><i className="icon-heart"></i><span>{parseInt(movie.popularity, 10)}%</span></li>
                                 </ul>
                             </div>
                         </Link>
