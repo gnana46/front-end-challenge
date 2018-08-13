@@ -1,22 +1,39 @@
 import React,{Component} from 'react';
+import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
+import NoItem from 'components/noItem';
 
 class RecentViwedMovie extends Component{
 
+    renderLists(){
+        if(!!this.props.recentList && this.props.recentList.length > 0){
+            return this.props.recentList.map(movie =>{
+                return (
+                    <li className="full-width item" key={movie.id}>
+                        <Link to={`/${movie.id}`} className="full-width">
+                        {movie.title}
+                        </Link>
+                    </li>
+                );
+            });
+        }else {
+            return <NoItem />;
+        }
+      }
     render(){
         return (
             <div className="recent-view">
                 <h2>Recent viewed movies</h2>
                 <ul className="full-width">
-                    <li className="full-width item" key="01">
-                        <Link to="04" className="full-width">
-                        Title
-                        </Link>
-                    </li>
+                    {this.renderLists()}
                 </ul>
             </div>
         );
     }
 }
-
-export default RecentViwedMovie;
+const mapStateToProps = (state) =>{
+    return {
+        recentList: state.recentList
+      }
+}
+export default connect(mapStateToProps)(RecentViwedMovie);

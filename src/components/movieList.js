@@ -1,29 +1,44 @@
 import React,{Component} from 'react';
+import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
+import * as actions from 'actions';
 
 class MovieList extends Component{
 
-   
-    render(){
-        return (
-            <div className="full-width search-results">
-                <ul className="full-width movie-list">
-                <li className="full-width list-item" key="1">
-                        <Link to="/404" className="full-width item">
-                            <img src="#"  alt="poster" />
+    renderLists(){
+        
+            if(!!this.props.movieList){
+            return this.props.movieList.map(movie =>{
+            return (
+                     <li className="full-width list-item" key={movie.id}>
+                        <Link to={`/${movie.id}`} className="full-width item">
+                            <img src={movie.full_poster_path}  alt="poster" />
                             <div className="item-info">
-                                <h4 className="item-title">Title <span>Date</span></h4>
+                                <h4 className="item-title">{movie.title} <span>{movie.release_date}</span></h4>
                                 <ul className="sub-info">
-                                    <li><i className="icon-sphere"></i><span>original language</span></li>
-                                    <li><i className="icon-heart"></i><span></span></li>
+                                    <li><i className="icon-sphere"></i><span>original language: {movie.original_language}</span></li>
+                                    <li><i className="icon-heart"></i><span>{movie.popularity}%</span></li>
                                 </ul>
                             </div>
                         </Link>
                     </li>
+                );
+            });
+        }
+      }
+    render(){
+        return (
+            <div className="full-width search-results">
+                <ul className="full-width movie-list">
+                {this.renderLists()}
                 </ul>
             </div>
         );
     }
 }
-
-export default MovieList;
+const mapStateToProps = (state) =>{
+    return {
+        movieList: state.movieList
+      }
+}
+export default connect(mapStateToProps, actions)(MovieList);
