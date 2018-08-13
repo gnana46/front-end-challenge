@@ -1,3 +1,9 @@
+/**
+ * RecentViwedMovie: to render recent view items
+ * Check the recentList & render the items if not it will render the no item component
+ * 
+ */
+
 import React,{Component} from 'react';
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';

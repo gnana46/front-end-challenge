@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import { connect } from 'react-redux';
+import _ from 'lodash';
 import {Link} from 'react-router-dom';
 import * as actions from 'actions';
 
@@ -7,7 +8,7 @@ class MovieList extends Component{
 
     renderLists(){
         
-            if(!!this.props.movieList){
+            if(this.props.movieList.length > 0 && _.has(this.props.movieList[0], 'title')){
             return this.props.movieList.map(movie =>{
             return (
                      <li className="full-width list-item" key={movie.id}>

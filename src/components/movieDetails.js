@@ -1,3 +1,8 @@
+/**
+ * MovieDetails Componet to render the movie details page according to the movie id
+ *
+ */
+
 import React,{Component} from 'react';
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
@@ -7,20 +12,26 @@ import * as actions from 'actions';
 
 class MovieDetails extends Component{
 
-    componentDidMount() {  
+    componentDidMount() { 
+        //Check movie list & if data not present in recet view pass it to the store 
         if(!!this.props.movieList && this.props.movieList.length > 0
              && !_.find(this.props.recentList, {id: parseInt(this.props.match.params.id, 10)})){
                 this.props.saveRecentView(_.find(this.props.movieList, {id: parseInt(this.props.match.params.id, 10)}))
         }
     }
-
+    /**
+     * To render movie details in the page if data is not present it will render NoItem component
+     *
+     * @param none
+     * @returns Movie details HTML or <NoItem /> componet
+     */
     renderDetails = () => {
         let details;
         if(!!this.props.movieList && this.props.movieList.length > 0){
             details = _.find(this.props.movieList, {id: parseInt(this.props.match.params.id, 10)});
             if(!!details) {
                 return (
-                    <div className="movie-details">
+                    <div className="full-width movie-details">
                         <img src={details.full_poster_path} alt="poster"/>
                         <ul className="detail-list">
                             <li className="item title">{details.title}</li>
